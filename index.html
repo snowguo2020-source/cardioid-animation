@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笛卡尔心形曲线 - Cardioid Animation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="sizeSlider">心形大小 (a): <span id="sizeValue">100</span></label>
+                <input type="range" id="sizeSlider" min="30" max="200" value="100" step="1">
+            </div>
+            
+            <div class="control-group">
+                <label for="speedSlider">动画速度: <span id="speedValue">1.0</span>x</label>
+                <input type="range" id="speedSlider" min="0.1" max="3" value="1" step="0.1">
+            </div>
+            
+            <div class="button-group">
+                <button id="resetBtn">重置</button>
+                <button id="pauseBtn">暂停</button>
+            </div>
+        </div>
+        
+        <div class="info">
+            <h2>笛卡尔心形曲线</h2>
+            <div class="formula">
+                <p>x = a cos(t) (1 + cos(t))</p>
+                <p>y = a sin(t) (1 + cos(t))</p>
+                <p>t ∈ [0, 2π]</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,14 +1,23 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
 
 // Canvas setup
 const canvas = document.getElementById('canvas');
+if (!canvas) {
+    console.error('Canvas element not found!');
+    return;
+}
+console.log('Canvas found:', canvas);
+
 const ctx = canvas.getContext('2d');
+console.log('Context:', ctx);
 
 // Set canvas size
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
     updateCenter();
 }
 resizeCanvas();
@@ -212,6 +221,7 @@ pauseBtn.addEventListener('click', () => {
 });
 
 // Start animation
+console.log('Starting animation...');
 animate();
 
 }); // End of DOMContentLoaded

@@ -1,3 +1,6 @@
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+
 // Canvas setup
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -6,6 +9,7 @@ const ctx = canvas.getContext('2d');
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    updateCenter();
 }
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
@@ -25,7 +29,6 @@ function updateCenter() {
     centerX = canvas.width / 2;
     centerY = canvas.height / 2;
 }
-updateCenter();
 
 // Cardioid parametric equations
 // x = a * cos(t) * (1 + cos(t))
@@ -208,10 +211,7 @@ pauseBtn.addEventListener('click', () => {
     pauseBtn.textContent = isPaused ? '继续' : '暂停';
 });
 
-// Handle window resize
-window.addEventListener('resize', () => {
-    updateCenter();
-});
-
 // Start animation
 animate();
+
+}); // End of DOMContentLoaded
